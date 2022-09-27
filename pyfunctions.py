@@ -48,3 +48,19 @@ def normalize_data(arg1):
                                         'TOTBSQ_last_value', 'TOTPOT_last_value', 'TOTUSJZ_last_value',
                                         'ABSNJZH_last_value', 'label']
     return p1_centralized_dataframe
+
+
+#create the dumped data function
+def dump_data(arg1):
+# converting the new pd.dataframe into a readable csv file
+    newcsvfile = arg1.to_csv(r'C:/Users/eugen/Downloads/arg1.csv', index=False)
+    return newcsvfile
+
+
+#creating the load data dataset
+def load_data(arg1,r1,r2,c1,c2):
+# deciding which collumns to add and remove
+    X = arg1.iloc[r1:r2, c1:c2].values
+# converting the array into a dataset
+    Xdataframe = pd.DataFrame(X)
+    return Xdataframe
