@@ -182,7 +182,7 @@ sns.despine(top=True,
 
 plt.tight_layout()
 
-plt.show()
+#plt.show()
 
 #change 1
 

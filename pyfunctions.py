@@ -2,7 +2,7 @@
 import pandas as pd
 
 #the classifcation function - used for classigying data
-def centralize_data(arg1):
+def normalize_data(arg1):
 #import the MinMaxScalar from sklearn
     from sklearn.preprocessing import MinMaxScaler
 #creating the object for the scalar
@@ -23,7 +23,7 @@ def centralize_data(arg1):
 
 
 #create the normalize data set
-def normalize_data(arg1):
+def centralize_data(arg1):
 # import the StandardScalar from sklearn
     from sklearn.preprocessing import StandardScaler
 # creating the object for the scalar
@@ -53,14 +53,14 @@ def normalize_data(arg1):
 #create the dumped data function
 def dump_data(arg1):
 # converting the new pd.dataframe into a readable csv file
-    newcsvfile = arg1.to_csv(r'C:/Users/eugen/Downloads/arg1.csv', index=False)
+    newcsvfile = arg1.to_csv(r'C:/Users/eugen/Downloads/X1_normalized.csv', index=False)
     return newcsvfile
 
 
 #creating the load data dataset
-def load_data(arg1,r1,r2,c1,c2):
+def load_data(arg1):
 # deciding which collumns to add and remove
-    X = arg1.iloc[r1:r2, c1:c2].values
+    X = arg1.iloc[:, :-1].values
 # converting the array into a dataset
     Xdataframe = pd.DataFrame(X)
     return Xdataframe
