@@ -34,16 +34,15 @@ y = y.reshape(len(y),1)
 
 ### splitting the p2 dataset into two partitions
 Xn = np.array(X1_normalized.iloc[:-15065,1:-1].values)
-Xn = Xn.reshape(len(Xn), 39)
+Xn = np.array(Xn.reshape(len(Xn), 39))
 yn = X1_normalized.iloc[:-15065,-1].values
 yn = yn.reshape(len(yn), 1)
 
 ### training the model
-from sklearn.svm import SVR
-regressor = SVR(kernel='rbf')
+from sklearn.tree import DecisionTreeRegressor
+regressor = DecisionTreeRegressor(random_state=0)
 regressor.fit(X,np.ravel(y, order='C'))
 
 asd = regressor.predict(Xn)
-#print(np.concatenate((y.reshape(len(y),1), asd.reshape(len(asd),1)),1))
+print(np.concatenate((y.reshape(len(y),1), asd.reshape(len(asd),1)),1))
 
-print(X)
