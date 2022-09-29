@@ -27,14 +27,23 @@ X1_normalized = normalize_data(X1dataframe)
 #dump_data(X1_normalized)
 
 ### splitting the data into 2 partitions (train and test)
-X = load_data(df1)
+X = np.array(df1.iloc[:,1:-1].values)
+X = X.reshape(len(X),39)
 y = df1.iloc[:,-1].values
-#y = y.reshape(len(y),1)
+y = y.reshape(len(y),1)
+
+### splitting the p2 dataset into two partitions
+Xn = np.array(X1_normalized.iloc[:-15065,1:-1].values)
+Xn = Xn.reshape(len(Xn), 39)
+yn = X1_normalized.iloc[:-15065,-1].values
+yn = yn.reshape(len(yn), 1)
 
 ### training the model
 from sklearn.svm import SVR
 regressor = SVR(kernel='rbf')
-regressor.fit(X,y)
+regressor.fit(X,np.ravel(y, order='C'))
 
+asd = regressor.predict(Xn)
+#print(np.concatenate((y.reshape(len(y),1), asd.reshape(len(asd),1)),1))
 
-
+print(X)
