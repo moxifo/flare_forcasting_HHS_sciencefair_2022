@@ -44,5 +44,32 @@ regressor = DecisionTreeRegressor(random_state=0)
 regressor.fit(X,np.ravel(y, order='C'))
 
 asd = regressor.predict(Xn)
-print(np.concatenate((y.reshape(len(y),1), asd.reshape(len(asd),1)),1))
+asd1 = np.concatenate((y.reshape(len(y),1), asd.reshape(len(asd),1)),1)
 
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y,asd)
+print(cm)
+
+from sklearn.metrics import accuracy_score
+Ascore = accuracy_score(y,asd)
+print(Ascore)
+print(asd)
+
+from sklearn.metrics import precision_score
+Pscore = precision_score(y,asd)
+print(Pscore)
+
+from sklearn.metrics import recall_score
+Rscore = recall_score(y,asd)
+print(Rscore)
+
+from sklearn.metrics import f1_score
+F1score = f1_score(y,asd)
+print(F1score)
+
+### NOTES !!!
+#precision score is for all the samples of the positive class out of all predicted samples
+#recall score is a 'harmonic' mean of precision
+# 'harmonic mean of the precision and recall scores obtained from the positve class
+
+#accuarcy was almost 94%, I dont know if I did anything wrong but that does not seem right
