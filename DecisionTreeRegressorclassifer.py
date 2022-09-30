@@ -46,6 +46,7 @@ regressor.fit(X,np.ravel(y, order='C'))
 asd = regressor.predict(Xn)
 asd1 = np.concatenate((y.reshape(len(y),1), asd.reshape(len(asd),1)),1)
 
+### getting the metrics from confusion matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y,asd)
 print(cm)
@@ -73,3 +74,5 @@ print(F1score)
 # 'harmonic mean of the precision and recall scores obtained from the positve class
 
 #accuarcy was almost 94%, I dont know if I did anything wrong but that does not seem right
+#additional when I used the parition 2 of the data, I removed some of the segments so they would have the
+#same amount of rows
