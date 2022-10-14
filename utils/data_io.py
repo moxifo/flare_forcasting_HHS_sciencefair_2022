@@ -38,3 +38,9 @@ def load_data(arg1):
 # suggests to avoid those underlined pieces. See the yellow bulb next to each
 # underlined piece and follow
 # the suggestions.
+#
+# 3. Whenever you need to pass a file path to a method, note that you CANNOT
+# use your local machine's paths. For example, you cannot use
+# 'C:/Users/eugen/Downloads/test111'. Instead, you should use a relative path
+# so that it works on anyone's computer, who has this project. So,
+# maybe something like this: '../data/output/test111.csv'.
