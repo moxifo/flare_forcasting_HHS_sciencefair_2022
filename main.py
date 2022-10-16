@@ -26,20 +26,20 @@ names = ["nonflare","flare"]
 xaxis_one = [0, 1]
 yaxis_one = [72238, 1254]
 #creating the bar plot via matplotlib
-#plt.bar(xaxis_one, yaxis_one, width=0.5, )
-#plt.xticks(xaxis_one, names)
-#plt.title('amount of nonflare vs flare')
-#plt.show()
+plt.bar(xaxis_one, yaxis_one, width=0.5, )
+plt.xticks(xaxis_one, names)
+plt.title('amount of nonflare vs flare')
+plt.show()
 #importing new dataframe into pandas
 dataset2 = pd.read_csv(r"C:\Users\eugen\Downloads\Xdataframe2.csv")
 
 #BOXPLOT!!!
 #setting the style to whitegrid
-#sns.set(style='whitegrid')
+sns.set(style='whitegrid')
 #setting the figure and axis
-#fig, ax = plt.subplots(figsize=(8,6))
+fig, ax = plt.subplots(figsize=(8,6))
 #setting up the boxplot(s)
-#g = sns.boxplot(data=dataset2[['TOTUSJH_last_value', 'TOTBSQ_last_value', 'TOTPOT_last_value',
+g = sns.boxplot(data=dataset2[['TOTUSJH_last_value', 'TOTBSQ_last_value', 'TOTPOT_last_value',
                                #'TOTUSJZ_last_value', 'ABSNJZH_last_value']], width=0.7)
 
 #setting up titles and lables

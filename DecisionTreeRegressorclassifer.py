@@ -82,3 +82,5 @@ print(F1score)
 #accuarcy was almost 94%, I dont know if I did anything wrong but that does not seem right
 #additional when I used the parition 2 of the data, I removed some of the segments so they would have the
 #same amount of rows
+
+

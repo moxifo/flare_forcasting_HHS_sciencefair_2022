@@ -15,15 +15,17 @@ def dump_data(df: pd.DataFrame, path: str):
     return new_csv_file
 
 
-def load_data(arg1):
+def load_data(arg1: pd.DataFrame):
     """
     @TODO: Please complete this similar to the example above.
-    :param arg1:
+    :param arg1: the data frame that is going to have its last collum removed
+    
     :return:
     """
     # deciding which collumns to add and remove
     X = arg1.iloc[:, :-1].values
     # converting the array into a dataset
+    assert isinstance(X, object)
     Xdataframe = pd.DataFrame(X)
     return Xdataframe
 
