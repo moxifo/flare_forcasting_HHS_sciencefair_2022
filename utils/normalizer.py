@@ -50,7 +50,6 @@ def normalize_data(data: pd.DataFrame):
 
 def centralize_data(data: pd.DataFrame):
     """
-    @TODO: complete this docstring following the example above.
     scales all the data to have a mean of 0. Each collum of the data will be centralized all together.
     To do this, we use the 'StandardScaler' function of the 'sklearn.preprocessing' package.
 

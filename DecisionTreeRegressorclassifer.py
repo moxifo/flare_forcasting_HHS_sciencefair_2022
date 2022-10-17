@@ -1,9 +1,3 @@
-# TODO: Whatever is happening in this script should also be broken down into
-#  several methods. Do NOT let snippets of code wander around. So, please
-#  redo this script (learning from those scripts that I re-did for you). The
-#  parts where the actual classification takes place (training + testing)
-#  should go to "classification > flare_forecasting_dt.py".
-
 ### Import the libraries
 import pandas as pd
 import numpy as np

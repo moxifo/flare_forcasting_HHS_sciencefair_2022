@@ -4,12 +4,6 @@ import seaborn as sns
 from matplotlib import pyplot as plt
 import pandas as pd
 
-# TODO: for each visualization you should have one method. If there are
-#  snipets of code that would be repeated in each method, take them out and
-#  create separate methods for them as well. So, most of your code that is
-#  now in `main.py` should be moved here, but they all should go in methods.
-
-#  No snipet of code should wander around outside a method.
 
 def import_csv(path: str):
     """
@@ -23,7 +17,7 @@ def import_csv(path: str):
     return dataset
 
 
-def data_feature_distribution_chart(a, b):
+def data_feature_distribution_chart(a: int, b: int):
     """
     Creates a boxplot of the occurences in which a solar flare did or did not appear.
 
@@ -33,8 +27,8 @@ def data_feature_distribution_chart(a, b):
 
     """
     names = ["nonflare", "flare"]
-    xaxis_one = [a, b]
-    yaxis_one = [c, d]
+    xaxis_one = [0, 1]
+    yaxis_one = [a, b]
     # creating the bar plot via matplotlib
     plt.bar(xaxis_one, yaxis_one, width=0.5, )
     plt.xticks(xaxis_one, names)
