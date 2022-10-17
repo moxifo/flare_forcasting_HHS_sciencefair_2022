@@ -17,7 +17,7 @@ def import_csv(path: str):
 
     :param path: the csv file that is going to be read by pandas
 
-    :return:
+    :return:the read csv file
     """
     dataset = pd.read_csv(path)
     return dataset
@@ -29,7 +29,7 @@ def data_feature_distribution_chart(a, b):
 
     :param a: occurrences were solar flares did not appear
     :param b: occurrences were solar flares did appear
-    :return:
+    :return: finished boxplot
 
     """
     names = ["nonflare", "flare"]
@@ -45,7 +45,7 @@ def data_feature_distribution_chart(a, b):
 def data_boxplot(arg1,a: str, b: str, c: str, d: str, e: str):
     """
 
-    :param arg1: the pandas dataframe in which the bloxplot will be created from
+    :param arg1: the pandas dataframe in which the boxplot will be created from
     :param a: the value of TOTUSJH you want to include
     :param b: the value of TOTBSQ you want to include
     :param c: the value of TOTPOT you want to include
