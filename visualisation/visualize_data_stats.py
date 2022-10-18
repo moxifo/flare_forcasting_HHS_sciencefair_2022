@@ -1,4 +1,3 @@
-# This script is a good place for your visualization methods.
 import numpy as np
 import seaborn as sns
 from matplotlib import pyplot as plt

@@ -40,6 +40,8 @@ R_score = ffdt.return_recall_score(y, asd)
 
 F1_score = ffdt.return_f1_score(y, asd)
 
+print(cm, A_score, P_score, R_score, F1_score)
+
 ### NOTES !!!
 # precision score is for all the samples of the positive class out of all predicted samples
 # recall score is a 'harmonic' mean of precision

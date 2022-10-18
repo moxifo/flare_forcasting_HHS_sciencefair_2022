@@ -1,7 +1,3 @@
-# TODO: this script should be broken down into methods; those which concern
-#  visualization should go to "visualization > visualize_data_stats.py". The
-#  rest, where the actual classification takes place (training + testing)
-#  should go to "classification > flare_forecasting_dt.py".
 import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
