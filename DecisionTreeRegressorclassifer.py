@@ -16,29 +16,29 @@ nd = vds.import_csv(r'C:\Users\eugen\Downloads\p2_40sf.csv')
 X1 = data_io.cut_data(nd)
 
 ### normalize the data
-X1_normalized = nm.normalize_data(X1)
+X1_normalized = nm.normalize_data(X1, 0, 1)
 
 
 ### splitting the data into 2 partitions (train and test)
 X, y = ffdt.train_test_split(df1, None, None)
 
 ### splitting the p2 dataset into two partitions
-Xn, yn = ffdt.train_test_split(X1_normalized, -15065, -15065)
+Xn, yn = ffdt.train_test_split(X1_normalized, None, None)
 
 ### training the model
 regressor = ffdt.train_decision_tree(X, y)
 asd = regressor.predict(Xn)
 
 ### getting the metrics from confusion matrix
-cm = ffdt.create_confusion_matrix(y, asd)
+cm = ffdt.create_confusion_matrix(yn, asd)
 
-A_score = ffdt.return_accuracy_score(y, asd)
+A_score = ffdt.return_accuracy_score(yn, asd)
 
-P_score = ffdt.return_precision_score(y, asd)
+P_score = ffdt.return_precision_score(yn, asd)
 
-R_score = ffdt.return_recall_score(y, asd)
+R_score = ffdt.return_recall_score(yn, asd)
 
-F1_score = ffdt.return_f1_score(y, asd)
+F1_score = ffdt.return_f1_score(yn, asd)
 
 print(cm, A_score, P_score, R_score, F1_score)
 

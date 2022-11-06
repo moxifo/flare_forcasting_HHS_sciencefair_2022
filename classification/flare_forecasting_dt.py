@@ -16,7 +16,18 @@ def train_test_split(dataframe, a, b):
     y = y.reshape(len(y), 1)
     return X, y
 
+def modified_sklearn_testrainsplit(df):
+    """
 
+    :param df: the pandas data frane yoy want to split
+    :return: the 4 dataframes
+    """
+    from classification import flare_forecasting_dt as ffdt
+    from sklearn.model_selection import train_test_split
+    X, y = ffdt.train_test_split(df, None, None)
+    ashdajsd = df.iloc[:, -1:]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, stratify=ashdajsd)
+    return X_train, X_test, y_train, y_test
 def train_decision_tree(X, y):
     """
     uses decision tree regression to train a model via an inputted dataset
@@ -88,3 +99,32 @@ def return_f1_score(y, Y):
     import sklearn.metrics
     f1_score  = sklearn.metrics.f1_score(y, Y)
     return f1_score
+
+def feature_split(df, v):
+    """
+    splits a pandas dataframe by rows by the select integer the user wants to separate the dataframe by.
+    :param df: the pandas dataframe to be separated
+    :param v: the integer that you want the row to be separated by
+    :return: two dataframes separated by class
+    """
+    df1 = df.iloc[:v, :]
+    #df1 = df1.reshape(len(df1), 41)
+    df2 = df.iloc[v:, :]
+    #df2 = df2.reshape(len(df2), 41)
+    return df1, df2
+
+def undersample(df,v,b: int):
+    """
+
+    :param df: the pandas dataframe to be under-sampled
+    :param v: the integer that represents the row where to positive and negative class are separated
+    :param b: the decimal that represents the ratio of negative to positive class
+    :return: the under-sampled dataframe
+    """
+    import pandas as pd
+    from classification import flare_forecasting_dt as ffdt
+    df1, df2 = ffdt.feature_split(df, v)
+    df1_undersampled_01 = df1.sample(frac=b)
+    frames = [df1_undersampled_01, df2]
+    result = pd.concat(frames)
+    return result
