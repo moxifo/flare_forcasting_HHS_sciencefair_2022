@@ -7,7 +7,7 @@ from classification import flare_forecasting_dt as ffdt
 from visualisation import visualize_data_stats as vds
 import pandas as pd
 from sklearn.model_selection import train_test_split
-
+"hit"
 ### Import p1 and p2 of SWAN-SF dataset
 p1 = vds.import_csv(r"C:\Users\eugen\Downloads\p1_40sf (1).csv")
 p2 = vds.import_csv(r"C:\Users\eugen\Downloads\p2_40sf (1).csv")
