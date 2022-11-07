@@ -89,4 +89,3 @@ F1_score_10 = ffdt.return_f1_score(yn, pred_10)
 Final_F1 = (F1_score_01 + F1_score_02 + F1_score_03 + F1_score_04 + F1_score_05 + F1_score_06 +
             F1_score_07 + F1_score_08 + F1_score_09 + F1_score_10) / 10
 
-print('hoi')
