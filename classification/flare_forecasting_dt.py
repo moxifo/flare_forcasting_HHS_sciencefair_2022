@@ -1,4 +1,5 @@
 import numpy as np
+import pandas
 
 
 def train_test_split(dataframe, a, b):
@@ -10,11 +11,12 @@ def train_test_split(dataframe, a, b):
     :return: the split data set
     """
     ### splitting the data into 2 partitions (train and test)
-    X = np.array(dataframe.iloc[:a, 1:-1].values)
-    X = X.reshape(len(X), 39)
+    X = np.array(dataframe.iloc[:a, :-1].values)
+    X1 = X.reshape(len(X), 40)
     y = dataframe.iloc[:b, -1].values
-    y = y.reshape(len(y), 1)
-    return X, y
+    y1 = y.reshape(len(y), 1)
+    return X1, y1
+
 
 def modified_sklearn_testrainsplit(df):
     """
@@ -28,6 +30,8 @@ def modified_sklearn_testrainsplit(df):
     ashdajsd = df.iloc[:, -1:]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, stratify=ashdajsd)
     return X_train, X_test, y_train, y_test
+
+
 def train_decision_tree(X, y):
     """
     uses decision tree regression to train a model via an inputted dataset
@@ -78,6 +82,7 @@ def return_precision_score(y, Y):
     p_score = sklearn.metrics.precision_score(y, Y)
     return p_score
 
+
 def return_recall_score(y, Y):
     """
     returns the recall score of an ML model via the actual and predicted output values
@@ -89,6 +94,7 @@ def return_recall_score(y, Y):
     r_score = sklearn.metrics.recall_score(y, Y)
     return r_score
 
+
 def return_f1_score(y, Y):
     """
     returns the recall score of an ML model via the actual and predicted output values
@@ -97,8 +103,9 @@ def return_f1_score(y, Y):
     :return: f1 score
     """
     import sklearn.metrics
-    f1_score  = sklearn.metrics.f1_score(y, Y)
+    f1_score = sklearn.metrics.f1_score(y, Y)
     return f1_score
+
 
 def feature_split(df, v):
     """
@@ -108,12 +115,13 @@ def feature_split(df, v):
     :return: two dataframes separated by class
     """
     df1 = df.iloc[:v, :]
-    #df1 = df1.reshape(len(df1), 41)
+    # df1 = df1.reshape(len(df1), 41)
     df2 = df.iloc[v:, :]
-    #df2 = df2.reshape(len(df2), 41)
+    # df2 = df2.reshape(len(df2), 41)
     return df1, df2
 
-def undersample(df,v,b: int):
+
+def undersample(df, v, b: int):
     """
 
     :param df: the pandas dataframe to be under-sampled
@@ -127,4 +135,25 @@ def undersample(df,v,b: int):
     df1_undersampled_01 = df1.sample(frac=b)
     frames = [df1_undersampled_01, df2]
     result = pd.concat(frames)
+    return result
+
+
+def log_normalization(df: pandas.DataFrame):
+    """
+    runs a log normalization on a pandas dataframe.
+    All values must be integers
+    The method will automatically calculate the absolute value of the dataframe.
+
+    :param df: the pandas dataframe that log normalization will be run on
+    :return: the normalized dataset
+    """
+    from sklearn.preprocessing import FunctionTransformer
+    import pandas as pd
+    import numpy as np
+    from classification import flare_forecasting_dt as ffdt
+    transformer = FunctionTransformer(np.log1p)
+    p1_abs = df.abs()
+    X, y = ffdt.train_test_split(p1_abs, None, None)
+    p1_log = transformer.transform(X)
+    result = pd.concat([pd.DataFrame(p1_log),pd.DataFrame(y)], axis=1)
     return result

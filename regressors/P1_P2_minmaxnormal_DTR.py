@@ -27,6 +27,7 @@ p2_normalized = nm.normalize_data(p2_modified, 0, 1)
 ### store the data into a new csv file
 # data_io.dump_data(p1_normalized,r"C:\Users\eugen\Downloads\p1_minmaxnormalized.csv")
 #data_io.dump_data(p2_normalized, r"C:\Users\eugen\Downloads\p2_minmaxnormalized.csv")
+
 ### undersample data (10 times)
 df1_undersampled_01 = ffdt.undersample(p1_normalized, 72238, 0.0173592846)
 df1_undersampled_02 = ffdt.undersample(p1_normalized, 72238, 0.0173592846)
