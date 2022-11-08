@@ -9,6 +9,8 @@ from visualisation import visualize_data_stats as vds
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import FunctionTransformer
+from sklearn.tree import plot_tree
+from sklearn import tree
 
 ### Import p1 and p2 of SWAN-SF dataset
 p1 = vds.import_csv(r"C:\Users\eugen\Downloads\p1_40sf (1).csv")
@@ -88,4 +90,14 @@ F1_score_10 = ffdt.return_f1_score(yn, pred_10)
 
 Final_F1 = (F1_score_01 + F1_score_02 + F1_score_03 + F1_score_04 + F1_score_05 + F1_score_06 +
             F1_score_07 + F1_score_08 + F1_score_09 + F1_score_10) / 10
+print(Final_F1)
 
+mean_final_F1 = ([0.7154334038054967,0.8307926829268293,0.8552981390049375,0.776706827309237,0.7959758551307846,
+                  0.7360066833751046,0.8088685015290518,0.8399232245681383,0.7954545454545453,0.8387832699619773])
+
+fig = plt.figure(figsize=(250, 200))
+_ = plot_tree(regressor_01,
+              filled=True)
+print(tree.DecisionTreeRegressor.get_depth(regressor_01))
+print(tree.DecisionTreeRegressor.get_n_leaves(regressor_01))
+print('hi')

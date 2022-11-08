@@ -7,6 +7,8 @@ from classification import flare_forecasting_dt as ffdt
 from visualisation import visualize_data_stats as vds
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.tree import plot_tree
+from sklearn import tree
 
 ### Import p1 and p2 of SWAN-SF dataset
 p1 = vds.import_csv(r"C:\Users\eugen\Downloads\p1_40sf (1).csv")
@@ -26,7 +28,7 @@ p2_normalized = nm.normalize_data(p2_modified, 0, 1)
 
 ### store the data into a new csv file
 # data_io.dump_data(p1_normalized,r"C:\Users\eugen\Downloads\p1_minmaxnormalized.csv")
-#data_io.dump_data(p2_normalized, r"C:\Users\eugen\Downloads\p2_minmaxnormalized.csv")
+# data_io.dump_data(p2_normalized, r"C:\Users\eugen\Downloads\p2_minmaxnormalized.csv")
 
 ### undersample data (10 times)
 df1_undersampled_01 = ffdt.undersample(p1_normalized, 72238, 0.0173592846)
@@ -95,3 +97,13 @@ F1_score_10 = ffdt.return_f1_score(yn, pred_10)
 
 Final_F1 = (F1_score_01 + F1_score_02 + F1_score_03 + F1_score_04 + F1_score_05 + F1_score_06 +
             F1_score_07 + F1_score_08 + F1_score_09 + F1_score_10) / 10
+
+fig = plt.figure(figsize=(250, 200))
+_ = plot_tree(regressor_01,
+              filled=True)
+
+print(tree.DecisionTreeRegressor.get_depth(regressor_01))
+print(tree.DecisionTreeRegressor.get_n_leaves(regressor_01))
+
+
+print('hi')

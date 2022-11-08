@@ -123,6 +123,7 @@ def feature_split(df, v):
 
 def undersample(df, v, b: int):
     """
+    undersample the data to manage class imbalance
 
     :param df: the pandas dataframe to be under-sampled
     :param v: the integer that represents the row where to positive and negative class are separated
