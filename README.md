@@ -40,7 +40,7 @@ The data used in this classifier was scaled through log normalization.
 Figures 5 and 6 visualize the model’s performance. The orange dot represents the model's performance (accuracy of F1-score). The color gradient represents the proficiency of any machine model. (A darker color corresponds to a higher performing model). Figures 4 & 5 are generated from GSU metrics.
 ![image](https://user-images.githubusercontent.com/69658184/207741235-e66f22ac-96a2-4094-8547-696475fc2686.png)
 In Figures 5 & 6, the F1-score (F1), Accuracy, True Negative Rate(TNR), and True Positive Rate(TPR) are displayed are highlighted in teal below.
-![image](https://user-images.githubusercontent.com/69658184/207741267-8f671a00-6c0a-4c79-a43c-35717a5fad52.png)
+![image](https://user-images.githubusercontent.com/69658184/207741563-b32d5571-e4e1-48d5-a929-bd135ff5472e.png)
 
 ## Conclusion
 The Machine Learning model had a desired performance being within the desirable range of 70.0-90.
