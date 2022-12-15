@@ -29,4 +29,23 @@ then fit the independent and dependent variables of the undersampled p1 dataset(
 6. Generate predicted results by fitting the independent variables of the undersampled p2 dataset. This will result in 10 different predicted results. 
 7. Generate 10 different F1-Scores based on the predicted results and the dependent variable of the under sampled p2 dataset.
 Figure 3 is a flowchart that models how the machine learning model was trained.
+![image](https://user-images.githubusercontent.com/69658184/207741301-3b4c647c-7bf0-4bbc-9140-c4c444b8a2ac.png)
+
+
+## Results
+The machine learning model(s) had a mean F1-score of  83.327%.
+Mean accuracy was 83%.
+The Decision Tree generated had a depth of 22 and 104 leaves. Figure 4 displays the decision tree below, with a capped depth of 1 for viewing purposes. 
+The data used in this classifier was scaled through log normalization.
+Figures 5 and 6 visualize the model’s performance. The orange dot represents the model's performance (accuracy of F1-score). The color gradient represents the proficiency of any machine model. (A darker color corresponds to a higher performing model). Figures 4 & 5 are generated from GSU metrics.
+![image](https://user-images.githubusercontent.com/69658184/207741235-e66f22ac-96a2-4094-8547-696475fc2686.png)
+In Figures 5 & 6, the F1-score (F1), Accuracy, True Negative Rate(TNR), and True Positive Rate(TPR) are displayed are highlighted in teal below.
+![image](https://user-images.githubusercontent.com/69658184/207741267-8f671a00-6c0a-4c79-a43c-35717a5fad52.png)
+
+## Conclusion
+The Machine Learning model had a desired performance being within the desirable range of 70.0-90.
+The first iteration of the model was trained with 0-1 normalized data having a mean F1-score of 0.697. The current iteration was trained with log normalization. 
+This yielded, a mean F1-score of  0.837. This change had a noticeable increase of 20.09%. This suggests that log normalization is better for boosting model performance.
+In the future, modifying the parameters within the classifier may help the model more clearly comprehend the nuances in the data. 
+Branching out from a Decision Tree Classifier to other classification models could also provide more insight into the nature of the SWAN-SF dataset, such as how different models process the data. A Support Vector Machine could be a promising choice for improving the F1-score.
 
